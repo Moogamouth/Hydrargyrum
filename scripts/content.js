@@ -60,7 +60,7 @@ function filter() {
 
 function observe(el) {
   if (!observerTargets.includes(el)) {
-      const observer = new MutationObserver(() => throttle(filter, 500);
+      const observer = new MutationObserver(() => throttle(filter, 500));
       observer.observe(el, { childList: true, subtree: true, characterData: true });
       observerTargets.push(el);
   }
