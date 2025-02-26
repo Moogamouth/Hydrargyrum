@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Hydrargyrum",
-  "version": "1.1",
+  "version": "1.2",
   "description": "A free and open-source browser extension that filters NSFW content based on keywords.",
   "browser_specific_settings": {
     "gecko": {
