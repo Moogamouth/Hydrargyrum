@@ -60,20 +60,21 @@ function filter() {
 
 function observe(el) {
   if (!observerTargets.includes(el)) {
-      const observer = new MutationObserver(() => throttle());
+      const observer = new MutationObserver(() => throttle(filter, 500);
       observer.observe(el, { childList: true, subtree: true, characterData: true });
       observerTargets.push(el);
   }
 }
 
-function throttle() {
-  const checkCondition = setInterval(() => {
-      if (Date.now() - time > 500) {
-          clearInterval(checkCondition);
-          filter();
-          time = Date.now();
-      }
-  }, 100);
+function throttle(func, interval) {
+  let lastTime = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastTime >= interval) {
+      func.apply(this, args);
+      lastTime = now;
+    }
+  };
 }
 
 let time = Date.now();
